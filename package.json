@@ -1,0 +1,19 @@
+{
+  "name": "packtpub-notifier",
+  "version": "1.0.0",
+  "description": "A Windows notifier for the daily free ebook from packtpub",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "cheerio": "^1.0.0-rc.2",
+    "node-notifier": "^5.1.2",
+    "open": "0.0.5",
+    "request": "^2.83.0",
+    "windows-shortcuts": "^0.1.6"
+  }
+}
