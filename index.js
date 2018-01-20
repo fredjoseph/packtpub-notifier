@@ -20,8 +20,7 @@ process.env.DEBUG = true;
 
 request.getAsync(PACKTPUB_URL)
 .then(content => {
-  let $ = cheerio.load(content);
-  
+  let $ = cheerio.load(content.body);
   let title = $('.dotd-title h2').text().trim();
   if (title === '') {
     throw "No free ebook today";
