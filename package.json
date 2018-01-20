@@ -11,7 +11,7 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "cheerio": "^1.0.0-rc.2",
-    "node-notifier": "^5.1.2",
+    "node-notifier": "^5.2.1",
     "open": "0.0.5",
     "request": "^2.83.0",
     "windows-shortcuts": "^0.1.6"
