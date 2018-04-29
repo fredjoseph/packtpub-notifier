@@ -6,13 +6,13 @@ A Windows notifier for the [packtpub daily free ebook](https://www.packtpub.com/
 - NodeJS
 
 ## Installation
-This notifier doesn't require an installation.
+This notifier doesn't require a specific installation (only `npm install`).
 However, the script `install.ps1` allows to create a scheduled task that runs the notifier every day.
 
 ### Scoop
 This notifier is also added in "fredjoseph" [scoop bucket](https://github.com/fredjoseph/scoop-bucket)
 
-    `scoop install packtpubNotifier`
+    scoop install packtpubNotifier
 
 ## Usage
 

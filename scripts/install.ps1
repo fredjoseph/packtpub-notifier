@@ -4,7 +4,7 @@ $tn = "PacktpubNotifier_" + $loggedUser
 
 schtasks.exe /delete /tn $tn /F 2>&1 | Out-Null
 
-$xml = [xml] (Get-Content "./PacktpubNotifier.xml")
+$xml = [xml] (Get-Content $PSScriptRoot/PacktpubNotifier.xml)
 
 $xml.Task.RegistrationInfo.Author = $domainUser
 $xml.Task.RegistrationInfo.Date = (Get-Date -Format o).ToString()
