@@ -12,7 +12,7 @@ $xml.Task.Principals.Principal.UserId = $domainuser
 $xml.Task.Triggers.CalendarTrigger.StartBoundary = (Get-Date ([DateTime]::Today.AddDays(1).addHours(2)) -Format o).ToString()
 $xml.Task.Actions.Exec.Command = "launchHidden.vbs"
 $xml.Task.Actions.Exec.Arguments = "./run.ps1"
-$xml.Task.Actions.Exec.WorkingDirectory = (Resolve-Path .).Path
+$xml.Task.Actions.Exec.WorkingDirectory = $PSScriptRoot
 
 $filepath = New-TemporaryFile
 
