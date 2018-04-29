@@ -12,7 +12,7 @@ However, the script `install.ps1` allows to create a scheduled task that runs th
 ### Scoop
 This notifier is also added in "fredjoseph" [scoop bucket](https://github.com/fredjoseph/scoop-bucket)
 
-    scoop install packtpubNotifier
+    scoop install packtpub-notifier
 
 ## Usage
 
