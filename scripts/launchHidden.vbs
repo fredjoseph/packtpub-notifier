@@ -1,0 +1,1 @@
+CreateObject("Wscript.Shell").Run "powershell " & Wscript.Arguments(0), 0, true
