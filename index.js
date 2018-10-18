@@ -1,6 +1,6 @@
 let Promise = require('bluebird');
 const cheerio = require("cheerio");
-const open = require("open");
+const openurl = require("openurl");
 const notifier = Promise.promisifyAll(require('node-notifier'));
 var ws = Promise.promisifyAll(require('windows-shortcuts'));
 var cp = Promise.promisifyAll(require('child_process'));
@@ -91,7 +91,7 @@ async function notify(message, duration) {
         throw 'TIMEOUT';
     })
 
-    notifier.on('click', (obj, options) => open(PACKTPUB_URL));
+    notifier.on('click', (obj, options) => openurl.open(PACKTPUB_URL));
 
     let promiseNotify = notifier.notifyAsync({
             'title': 'Free PacktPub Ebook',
