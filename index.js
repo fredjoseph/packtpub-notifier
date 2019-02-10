@@ -1,5 +1,4 @@
 let Promise = require('bluebird');
-const cheerio = require("cheerio");
 const openurl = require("openurl");
 const notifier = Promise.promisifyAll(require('node-notifier'));
 var ws = Promise.promisifyAll(require('windows-shortcuts'));
