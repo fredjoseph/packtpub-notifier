@@ -107,7 +107,9 @@ async function notify(message, duration) {
         throw 'TIMEOUT';
     })
 
-    notifier.on('click', (_) => openurl.open(PACKTPUB_URL));
+    if (!notifier.eventNames().includes('click')) {
+        notifier.on('click', (_) => openurl.open(PACKTPUB_URL));
+    }
 
     let promiseNotify = notifier.notifyAsync({
             'title': 'Free PacktPub Ebook',
