@@ -40,11 +40,27 @@ async function main() {
 }
 
 async function getEbookTitle() {
-    const [err, content] = await utils.to_array(request.getAsync(PACKTPUB_URL));
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    const todayAsString = new Date().toISOString().substr(0, 10);
+    const tomorrowAsString = tomorrow.toISOString().substr(0, 10);
+
+    const [err, response] = await utils.to_array(request.getAsync(`https://services.packtpub.com/free-learning-v1/offers?dateFrom=${todayAsString}&dateTo=${tomorrowAsString}`));
     if (err) throw new Error(err);
 
-    let $ = cheerio.load(content.body);
-    return $('.dotd-title h2').text().trim();
+    let content = JSON.parse(response.body);
+    if (content.data && content.data.length > 0) {
+        productId = content.data[0].productId;
+
+        const [err, response] = await utils.to_array(request.getAsync(`https://static.packt-cdn.com/products/${productId}/summary`));
+        if (err) throw new Error(err);
+
+        content = JSON.parse(response.body);
+        return content.title;
+    }
+
+    return;
 }
 
 async function createShortcut() {
@@ -91,7 +107,7 @@ async function notify(message, duration) {
         throw 'TIMEOUT';
     })
 
-    notifier.on('click', (obj, options) => openurl.open(PACKTPUB_URL));
+    notifier.on('click', (_) => openurl.open(PACKTPUB_URL));
 
     let promiseNotify = notifier.notifyAsync({
             'title': 'Free PacktPub Ebook',
