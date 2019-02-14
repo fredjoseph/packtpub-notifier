@@ -1,6 +1,6 @@
 {
   "name": "packtpub-notifier",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "A Windows notifier for the daily free ebook from packtpub",
   "main": "index.js",
   "scripts": {
